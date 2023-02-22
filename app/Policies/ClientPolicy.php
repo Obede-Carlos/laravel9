@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Member;
+use App\Models\Client;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -16,23 +16,29 @@ class ProductPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    
+    //TOdo el mundo puede ver el index al poner true.
     public function viewAny(User $user)
     {
-        return true; 
+        return true; //Con true permitimos a todos usuarios. Con false restringimos todo el acceso (Aparece error 403)
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Client  $product
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    
-    public function view(User $user, Member $product)
+    /*Establecemos abajo que solamente el usuario con id 1 pueda ver los productos con número par. El que no sea id 1 no podrá ver nada y si es producto impar tampoco
+    if ($user->id = 1) {
+        return $product->id % 2 == 0;
+    } else {
+        return false;
+    }*/
+    public function view(User $user, Client $client)
     {
-       return true;         
+       return true; 
+        
     }
 
     /**
@@ -43,36 +49,49 @@ class ProductPolicy
      */
     public function create(User $user)
     {
-        return true;
+        if ($user->id == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Member  $member
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    
-    public function update(User $user, Member $member)
+    /*Regla para limitar que solamente el usuario con nombre "Jhonny Melavo" pueda modificar las lineas impares
+    if ($user->name == "Jhonny Melavo") {
+        return $product->id % 2 == 1;
+    } else {
+        return false;
+    }*/
+    public function update(User $user, Client $client)
     {
-        return true;        
+        if ($user->id == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Member  $member
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Member $member)
+    public function delete(User $user, Client $client)
     {
-        return $user->rol == "administrador" ? true : false;
+        return $user->id == 1 ? true : false;
     }
 
     //Regla personalizada. Ponemos que solamente el usuario "Eduardo" pueda cambiar el precio
-    public function changePrice(User $user, Member $member){
+    public function changePrice(User $user, Client $client){
         return $user->name ="Eduardo";
     }
 
@@ -80,10 +99,10 @@ class ProductPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Member  $member
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Member $member)
+    public function restore(User $user, Client $client)
     {
         //
     }
@@ -92,10 +111,10 @@ class ProductPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Member  $member
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Member $member)
+    public function forceDelete(User $user, Client $client)
     {
         //
     }

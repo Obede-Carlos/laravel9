@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,5 +20,16 @@ class Order extends Model
 
         //Para relaciones N:M
         return $this->belongsToMany(Client::class);
+    }
+
+    //protected $cast = ["fecha" => "datetime:d-m-y"];
+
+    //sintaxis para laravel9.
+    public function Fecha(): Attribute
+    {
+        return new Attribute(
+            fn($value) => Carbon::parse($value)->format("[d*m*y]"),
+            fn($value) => Carbon::parse($value)-> format("d/m/y"),
+        );
     }
 }
