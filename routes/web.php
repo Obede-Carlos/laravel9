@@ -109,6 +109,10 @@ Route::get("/catalog/create", [VideoclubController::class, "create"]);
 Route::get("/catalog/edit/{id}", [VideoclubController::class, "edit"]);
 
 */
+//CONTROLADOR DealerController
+Route::resource("dealers", );
+
+
 //CONTROLADOR ProductController
 Route::resource("products", ProductController::class); //Equivale a los 7 metodos
 
