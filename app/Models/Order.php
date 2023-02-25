@@ -29,7 +29,7 @@ class Order extends Model
     {
         return new Attribute(
             fn($value) => Carbon::parse($value)->format("[d*m*y]"),
-            fn($value) => Carbon::parse($value)-> format("d/m/y"),
+            //fn($value) => Carbon::parse($value)-> format("d/m/y"),
         );
     }
 }

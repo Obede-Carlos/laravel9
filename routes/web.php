@@ -110,7 +110,6 @@ Route::get("/catalog/edit/{id}", [VideoclubController::class, "edit"]);
 
 */
 //CONTROLADOR DealerController
-Route::resource("dealers", );
 
 
 //CONTROLADOR ProductController

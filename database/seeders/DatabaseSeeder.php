@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Publisher;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -29,7 +31,9 @@ class DatabaseSeeder extends Seeder
             OrderSeeder::class,
             ClientOrderSeeder::class,
             UserSeeder::class,
-            StudySeeder::class,          
+            StudySeeder::class,
+            PublisherSeeder::class,
+            BookSeeder::class,        
         ]);
     }
 }
