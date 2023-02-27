@@ -6,10 +6,13 @@ use App\Http\Controllers\StudyController; //Añadimos el studycontroller para en
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\AppEjemplo;
 use App\Http\Controllers\AsignaturaController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\VideoclubController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\PublisherController;
+use App\Models\Publisher;
 
 //Prueba para cargar login de ui laravel en bootstrap
 Route::get('/', function () { 
@@ -109,8 +112,11 @@ Route::get("/catalog/create", [VideoclubController::class, "create"]);
 Route::get("/catalog/edit/{id}", [VideoclubController::class, "edit"]);
 
 */
-//CONTROLADOR DealerController
+//CONTROLADOR PublisherController
+Route::resource("publishers", PublisherController::class);
 
+//CONTROLADOR BookController
+Route::resource("books", BookController::class);
 
 //CONTROLADOR ProductController
 Route::resource("products", ProductController::class); //Equivale a los 7 metodos

@@ -37,6 +37,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('clients.index') }}">Clients</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('books.index') }}">Libros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('publishers.index') }}">Editoriales</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
