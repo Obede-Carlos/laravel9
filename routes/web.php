@@ -9,7 +9,9 @@ use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\VideoclubController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\InstitutoController;
 use App\Http\Controllers\ProductoController;
+use App\Models\Instituto;
 
 //Prueba para cargar login de ui laravel en bootstrap
 Route::get('/', function () { 
@@ -109,6 +111,7 @@ Route::get("/catalog/create", [VideoclubController::class, "create"]);
 Route::get("/catalog/edit/{id}", [VideoclubController::class, "edit"]);
 
 */
+/*
 //CONTROLADOR ProductController
 Route::resource("products", ProductController::class); //Equivale a los 7 metodos
 
@@ -122,8 +125,10 @@ Route::resource("clients", ClientController::class);
 
 //CONTROLADOR StudyController
 Route::resource("studies", StudyController::class);
+*/
 
-
+//Controlador examen.
+Route::resource("institutos", InstitutoController::class);
 
 // //Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
