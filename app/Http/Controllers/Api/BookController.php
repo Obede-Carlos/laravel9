@@ -100,11 +100,10 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        // Corresponde con la ruta /studies/{study}
-        // Buscamos un study por el ID.
+        //buscamos el Libro.
         $book = Book::find($id);
 
-        // Chequeamos si encontró o no el Book
+        // Chequeamos si encontró o no el Libro
         if (!$book) {
             // Se devuelve un array errors con los errores detectados y código 404
             return response()->json(['errors' => (['code' => 404, 'message' => 'No se encuentra un Libro con ese código.'])], 404);
@@ -134,7 +133,7 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //Que busque el Booko y de un error si no lo encuentra
+        //Que busque el Libro y de un error si no lo encuentra
         $book = Book::find($id);
         if (!$book) {
             return response()->json(['status' => 'NOK', 'message' => 'No se encuentra un Libro con ese código.'], 404);

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\StudyController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,8 @@ Route::get('/', function() {
 
 //En la api solo hay 5 rutas, por eso hay que hacer excepcion de 2 de ellas.
 Route::resource('products', ProductController::class)->except(['create', 'edit']);
+
+Route::resource('books', BookController::class)->except(['create', 'edit']);
 
 Route::resource('studies', StudyController::class)->except(['create', 'edit']);
 
