@@ -15,7 +15,6 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
@@ -31,18 +30,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('products.index') }}">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('clients.index') }}">Clients</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('books.index') }}">Libros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('publishers.index') }}">Editoriales</a>
-                        </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -68,8 +56,8 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
